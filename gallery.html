@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleri</title>
+    <style>
+        /* Set the background image to cover the entire viewport */
+        body {
+            background-image: url('default-background.jpg'); /* Default background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Fixed background to prevent scrolling */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Remove the bottom bar */
+        footer {
+            display: none;
+        }
+
+        /* Create a grid for gallery images */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+            margin: 20px;
+        }
+
+        /* Style for gallery images */
+        .gallery img {
+            max-width: 100%; /* Make sure images don't exceed their container's width */
+            height: auto;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            transform: scale(0.8);
+            cursor: pointer; /* Add a pointer cursor to indicate clickable images */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Increase the size by 5% on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your gallery content goes here -->
+    <div class="gallery">
+        <!-- Add your gallery images here with data attributes -->
+        <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368005780_667354635453662_7006474120091034732_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=49d041&_nc_ohc=51G19CPb9SQAX_rCBc6&_nc_ht=scontent-arn2-1.xx&oh=00_AfDP1tyIWnl0rpdyezs5aWlMud_IuU74lphqOOVkxqPK_Q&oe=64F619AA" alt="Image 1" data-background="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368005780_667354635453662_7006474120091034732_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=49d041&_nc_ohc=51G19CPb9SQAX_rCBc6&_nc_ht=scontent-arn2-1.xx&oh=00_AfDP1tyIWnl0rpdyezs5aWlMud_IuU74lphqOOVkxqPK_Q&oe=64F619AA">
+        <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368004723_667355522120240_119916489519725365_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=49d041&_nc_ohc=EzWfVOocksUAX_Wd8q_&_nc_ht=scontent-arn2-1.xx&oh=00_AfAvPBXHERZBeg0hYhMP_C6YkwJ2dCH75DSMdy0gcIjN0w&oe=64F65D7E" alt="Image 2" data-background="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368004723_667355522120240_119916489519725365_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=49d041&_nc_ohc=EzWfVOocksUAX_Wd8q_&_nc_ht=scontent-arn2-1.xx&oh=00_AfAvPBXHERZBeg0hYhMP_C6YkwJ2dCH75DSMdy0gcIjN0w&oe=64F65D7E">
+        <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/367733490_667355128786946_4561742676646195859_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=49d041&_nc_ohc=bh11Ss1ZnLcAX-cCqY6&_nc_ht=scontent-arn2-1.xx&oh=00_AfAYIyuTh_4k5LbxzjzG6jGBUJET-36ALTs1OP3l358Z4A&oe=64F6F411" alt="Image 3" data-background="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/367733490_667355128786946_4561742676646195859_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=49d041&_nc_ohc=bh11Ss1ZnLcAX-cCqY6&_nc_ht=scontent-arn2-1.xx&oh=00_AfAYIyuTh_4k5LbxzjzG6jGBUJET-36ALTs1OP3l358Z4A&oe=64F6F411">
+        <!-- Add more images as needed -->
+    </div>
+
+    <!-- JavaScript to handle background image change -->
+    <script>
+        const galleryImages = document.querySelectorAll('.gallery img');
+        const body = document.body;
+
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                const backgroundImage = image.getAttribute('data-background');
+                body.style.backgroundImage = `url('${backgroundImage}')`;
+            });
+        });
+    </script>
+</body>
+</html>
