@@ -7,12 +7,30 @@
     <style>
         /* Set the background image to cover the entire viewport */
         body {
-            background-image: url('default-background.jpg'); /* Default background image */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars from appearing */
+            position: relative;
+            background-image: url('https://scontent.fsvg1-1.fna.fbcdn.net/v/t39.30808-6/365440840_667354698786989_4496871743375371867_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=49d041&_nc_ohc=8BZgapskYsYAX-Nz2uM&_nc_ht=scontent.fsvg1-1.fna&oh=00_AfAK3nMwJMJk8n58IEf_XOKgOJNDtEDmL7I56y60LVjQwQ&oe=64F680F5');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Fixed background to prevent scrolling */
-            margin: 0;
-            padding: 0;
+        }
+
+        /* Apply a slight blur to the background */
+        body::before {
+            content: "";
+            background-image: inherit;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            filter: blur(5px); /* Apply a slight blur to the background */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
         /* Remove the bottom bar */
@@ -20,49 +38,87 @@
             display: none;
         }
 
-        /* Create a grid for gallery images */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 20px;
-            margin: 20px;
+        /* Add padding to the top of the page */
+        body {
+            padding-top: 50px; /* Adjust the padding as needed */
         }
 
-        /* Style for gallery images */
-        .gallery img {
-            max-width: 100%; /* Make sure images don't exceed their container's width */
+        /* Style for the pill-shaped container */
+        .pill-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-translucent black background */
+            color: white;
+            padding: 10px 20px; /* Adjust padding as needed */
+            border-radius: 50px; /* Make it pill-shaped */
+            font-size: 24px; /* Adjust font size as needed */
+            position: absolute;
+            top: 15%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the container */
+            text-align: center; /* Center the text */
+        }
+
+        /* Style for the tiny pill shape */
+        .tiny-pill {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-translucent black background */
+            color: white;
+            padding: 5px 10px; /* Adjust padding as needed */
+            border-radius: 20px; /* Make it pill-shaped */
+            font-size: 16px; /* Adjust font size as needed */
+            position: absolute;
+            top: calc(15% + 39px); /* Position below the main pill */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the container */
+            cursor: pointer; /* Add a pointer cursor */
+        }
+
+        /* Link style for the tiny pill */
+        .tiny-pill a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Style for gallery image container */
+        .gallery-img {
+            max-width: 150px; /* Maximum width of 150 pixels for small square */
+            max-height: 150px; /* Maximum height of 150 pixels for small square */
+            width: auto;
             height: auto;
+            border-radius: 10px; /* Rounded corners */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            transform: scale(0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease; /* Smoother transition */
             cursor: pointer; /* Add a pointer cursor to indicate clickable images */
+            margin: 75px; /* Add spacing around each image */
+            opacity: 1; /* Set initial opacity to 1 */
         }
 
-        .gallery img:hover {
-            transform: scale(1.05); /* Increase the size by 5% on hover */
+        .gallery-img:hover {
+            max-width: 180px; /* Maximum width of 180 pixels on hover (20% increase) */
+            max-height: 180px; /* Maximum height of 180 pixels on hover (20% increase) */
+            transform: scale(1.2); /* Increase size by 20% on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
         }
     </style>
 </head>
 <body>
-    <!-- Your gallery content goes here -->
-    <div class="gallery">
-        <!-- Add your gallery images here with data attributes -->
-        <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368005780_667354635453662_7006474120091034732_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=49d041&_nc_ohc=51G19CPb9SQAX_rCBc6&_nc_ht=scontent-arn2-1.xx&oh=00_AfDP1tyIWnl0rpdyezs5aWlMud_IuU74lphqOOVkxqPK_Q&oe=64F619AA" alt="Image 1" data-background="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368005780_667354635453662_7006474120091034732_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=49d041&_nc_ohc=51G19CPb9SQAX_rCBc6&_nc_ht=scontent-arn2-1.xx&oh=00_AfDP1tyIWnl0rpdyezs5aWlMud_IuU74lphqOOVkxqPK_Q&oe=64F619AA">
-        <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368004723_667355522120240_119916489519725365_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=49d041&_nc_ohc=EzWfVOocksUAX_Wd8q_&_nc_ht=scontent-arn2-1.xx&oh=00_AfAvPBXHERZBeg0hYhMP_C6YkwJ2dCH75DSMdy0gcIjN0w&oe=64F65D7E" alt="Image 2" data-background="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/368004723_667355522120240_119916489519725365_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=49d041&_nc_ohc=EzWfVOocksUAX_Wd8q_&_nc_ht=scontent-arn2-1.xx&oh=00_AfAvPBXHERZBeg0hYhMP_C6YkwJ2dCH75DSMdy0gcIjN0w&oe=64F65D7E">
-        <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/367733490_667355128786946_4561742676646195859_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=49d041&_nc_ohc=bh11Ss1ZnLcAX-cCqY6&_nc_ht=scontent-arn2-1.xx&oh=00_AfAYIyuTh_4k5LbxzjzG6jGBUJET-36ALTs1OP3l358Z4A&oe=64F6F411" alt="Image 3" data-background="https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/367733490_667355128786946_4561742676646195859_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=49d041&_nc_ohc=bh11Ss1ZnLcAX-cCqY6&_nc_ht=scontent-arn2-1.xx&oh=00_AfAYIyuTh_4k5LbxzjzG6jGBUJET-36ALTs1OP3l358Z4A&oe=64F6F411">
-        <!-- Add more images as needed -->
+    <!-- Pill-shaped container with text -->
+    <div class="pill-container">
+        Ett år i Glomfjord
     </div>
 
-    <!-- JavaScript to handle background image change -->
-    <script>
-        const galleryImages = document.querySelectorAll('.gallery img');
-        const body = document.body;
+    <!-- Tiny pill shape for "tilbake" -->
+    <div class="tiny-pill">
+        <a href="index.html">tilbake</a>
+    </div>
 
-        galleryImages.forEach(image => {
-            image.addEventListener('click', () => {
-                const backgroundImage = image.getAttribute('data-background');
-                body.style.backgroundImage = `url('${backgroundImage}')`;
-            });
+    <!-- Your gallery content goes here -->
+    <div class="gallery">
+        <img class="gallery-img" src="https://scontent.fsvg1-1.fna.fbcdn.net/v/t39.30808-6/365451364_667355425453583_9075738436296327021_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=49d041&_nc_ohc=XO_oIkUn7JoAX_95B-G&_nc_ht=scontent.fsvg1-1.fna&oh=00_AfBJJd9NZHnQ1Q8HcFQG1jDNXVy_kc39bfpoQbKua_nrWw&oe=64F6E80F" alt="Image 1">
+    </div>
+
+    <!-- JavaScript to add the "loaded" class when the page is loaded -->
+    <script>
+        window.addEventListener('load', function () {
+            document.body.classList.add('loaded');
         });
     </script>
 </body>

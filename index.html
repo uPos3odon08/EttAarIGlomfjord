@@ -35,12 +35,12 @@
             display: block;
             margin: 10px 0;
             padding: 10px 20px;
-            border-radius: 50px;
-            background-color: rgba(0, 0, 255, 0.5);
+            border-radius: 50px; /* Make it pill-shaped */
+            background-color: rgba(0, 0, 255, 0.5); /* Semi-translucent blue background */
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         nav a:hover {
-            background-color: rgba(0, 0, 255, 0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             transform: scale(1.05);
         }
     </style>
@@ -48,9 +48,9 @@
 <body>
     <h1>"Ett år i Glomfjord"</h1>
     <nav>
-        <a href="about.html">Om</a>
-        <a href="gallery.html">Galleri</a>
-        <a href="contact.html">Kom i kontakt</a>
+        <a href="about.html" class="gallery-img">Om</a>
+        <a href="gallery.html" class="gallery-img">Galleri</a>
+        <a href="contact.html" class="gallery-img">Kom i kontakt</a>
     </nav>
 </body>
 </html>

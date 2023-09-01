@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://scontent.fsvg1-1.fna.fbcdn.net/v/t39.30808-6/369735237_673151944873931_6063396382611206479_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=49d041&_nc_ohc=SYIgblolOhsAX9QPpoe&_nc_ht=scontent.fsvg1-1.fna&oh=00_AfBNVNtHpzU65n69ouPX29hMt8RC6a5IPrfqSlkW6MQHcg&oe=64F60A0C');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .pill-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-translucent black background */
+            color: white;
+            padding: 10px 20px; /* Adjust padding as needed */
+            border-radius: 50px; /* Make it pill-shaped */
+            font-size: 24px; /* Adjust font size as needed */
+            position: absolute;
+            top: 6%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the container */
+            text-align: center; /* Center the text */
+        }
+        /* Style for the tiny pill shape */
+        .tiny-pill {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-translucent black background */
+            color: white;
+            padding: 5px 10px; /* Adjust padding as needed */
+            border-radius: 20px; /* Make it pill-shaped */
+            font-size: 16px; /* Adjust font size as needed */
+            position: absolute;
+            top: calc(6% + 39px); /* Position below the main pill */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the container */
+            cursor: pointer; /* Add a pointer cursor */
+        }
+
+        /* Link style for the tiny pill */
+        .tiny-pill a {
+            text-decoration: none;
+            color: white;
+        }
+        .contact-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-translucent black background */
+            color: white;
+            padding: 20px; /* Adjust padding as needed */
+            border-radius: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        }
+        p {
+            font-size: 18px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pill-shaped container with text -->
+    <div class="pill-container">
+        Ett år i Glomfjord
+    </div>
+
+    <!-- Tiny pill shape for "tilbake" -->
+    <div class="tiny-pill">
+        <a href="index.html">tilbake</a>
+    </div>
+
+    <!-- Black and semi-translucent contact information container -->
+    <div class="contact-container">
+        <h1>Kontaktinformasjon</h1>
+        <p>E-post: your.email@example.com</p>
+        <p>Telefonnummer: +123456789</p>
+    </div>
+</body>
+</html>
