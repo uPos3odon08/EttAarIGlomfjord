@@ -111,59 +111,69 @@
     </div>
 
     <!-- Content container with fixed height and scrolling -->
-<div class="content-container">
+    <div class="content-container" id="imageContainer">
         <!-- Your gallery content goes here -->
-        <!--   copy and paste this + the image link <img class="gallery-img" src="" alt="time of year">   -->
-        <img class="gallery-img" src="/images/2023.08.15-19_08.30.jpg" alt="summer">
-        <img class="gallery-img" src="/images/2023.08.15-19_27.35.jpg" alt="summer">
-        <img class="gallery-img" src="/images/2023.08.15-19_55.02.jpg" alt="summer">
-        <img class="gallery-img" src="/images/2023.08.15-19_57.48.jpg" alt="summer">
-        <img class="gallery-img" src="/images/2023.08.19-11_38.43.jpg" alt="summer">
-        <img class="gallery-img" src="/images/2023.08.19-12_16.40.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230823-IMG_0059.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230825-IMG_0027.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230825-IMG_0047.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230825-IMG_0098.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230825-IMG_0108.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230826-IMG_0012.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230826-IMG_0013-Enhanced-NR.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230826-IMG_0022-Enhanced-NR.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0004.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0006.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0007.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0008.jpg" alt="Summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0009.jpg" alt="Summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0018.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0024-HDR.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230827-IMG_0028.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230830-IMG_0008.jpg" alt="summer">
-        <img class="gallery-img" src="/images/20230903-IMG_0020.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230903-IMG_0044.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230903-IMG_0058.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230906-IMG_0004.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230906-IMG_0005.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230906-IMG_0012.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230908-IMG_0042.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230909-IMG_0001.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230909-IMG_0016.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230909-IMG_0062.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230909-IMG_0065-HDR.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230909-IMG_0078.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230909-IMG_0117.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230909-IMG_0135.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230911-IMG_0179.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230911-IMG_0191.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230912-IMG_0067.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230913-IMG_0102.jpg" alt="fall">
-        <img class="gallery-img" src="/images/IMG_0001.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230913-IMG_0107.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230913-IMG_0117.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230915-IMG_0037-Enhanced-NR.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230916-IMG_0082.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230918-IMG_0039-Enhanced-NR.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230918-IMG_0041-Enhanced-NR.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230919-IMG_0017-Enhanced-NR.jpg" alt="fall">
-        <img class="gallery-img" src="/images/20230919-IMG_0051-Enhanced-NR.jpg" alt="fall">
+
+        <!-- JavaScript to dynamically add images with target="_blank", jpg extension, and alt attributes -->
+        <script>
+            const imageContainer = document.getElementById('imageContainer');
+
+            // Array of image file names without extension
+            const imageFileNamesWithoutExtension = [
+                "20230815-19_08.30",
+                "20230815-19_22.33",
+                "20230815-19_27.35",
+                "20230815-19_32.54",
+                "20230815-19_55.02",
+                "20230815-19_57.48",
+                "20230815-20_06.51",
+                "20230819-11_36.38",
+                "20230819-11_38.43",
+                "20230819-11_40.47",
+                "20230819-11_53.37",
+                "20230819-12_08.10",
+                "20230819-12_15.25",
+                "20230819-12_16.40",
+                "20230819-12_16.47",
+                "20230823-IMG_0033",
+                "20230823-IMG_0051",
+                "",
+                "",
+                "",
+                "",
+                "",
+
+                // Add more image file names without extension here
+            ];
+
+            // Iterate through the image file names and create image elements
+            imageFileNamesWithoutExtension.forEach(fileName => {
+                const img = document.createElement('img');
+                img.className = 'gallery-img';
+                img.src = `/images/${fileName}.jpg`; // Add the jpg extension here
+
+                // Determine alt text based on the file name pattern
+                let alt = '';
+                if (fileName.startsWith("202305") || fileName.startsWith("202306") || fileName.startsWith("202307") || fileName.startsWith("202308")) {
+                    alt = 'summer';
+                } else if (fileName.startsWith("202309") || fileName.startsWith("202310") || fileName.startsWith("202311")) {
+                    alt = 'fall';
+                } else if (fileName.startsWith("202312") || fileName.startsWith("202401") || fileName.startsWith("202402")) {
+                    alt = 'winter';
+                } else if (fileName.startsWith("202403") || fileName.startsWith("202404")) {
+                    alt = 'autumn';
+                }
+
+                img.alt = alt;
+
+                // Open the image in a new tab when clicked
+                const link = document.createElement('a');
+                link.href = `/images/${fileName}.jpg`; // Add the jpg extension here
+                link.target = '_blank';
+                link.appendChild(img);
+                imageContainer.appendChild(link);
+            });
+        </script>
     </div>
 </body>
 </html>
