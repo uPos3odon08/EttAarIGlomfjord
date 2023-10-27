@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galleri</title>
     <style>
-        /* Set the background image to cover the entire viewport */
+        /* Common styles for all screen sizes */
         body {
             margin: 0;
             padding: 0;
@@ -15,7 +15,6 @@
             background-size: cover;
         }
 
-        /* Apply a slight blur to the background */
         body::before {
             content: "";
             background: inherit no-repeat fixed;
@@ -29,17 +28,32 @@
             z-index: -1;
         }
 
-        /* Remove the bottom bar */
         footer {
             display: none;
         }
 
-        /* Add padding to the top of the page */
-        body {
-            padding-top: 50px;
+        /* Adjustments for mobile screens */
+        @media (max-width: 600px) {
+            .pill-container, .tiny-pill {
+                font-size: 20px;
+            }
+
+            .tiny-pill a {
+                font-size: 14px;
+            }
+
+            .gallery-img {
+                max-width: 100px;
+                max-height: 100px;
+                margin: 20px;
+            }
+
+            .content-container {
+                margin-top: 60px;
+            }
         }
 
-        /* Style for the pill-shaped container */
+        /* Styles for larger screens */
         .pill-container, .tiny-pill {
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
@@ -50,9 +64,6 @@
             cursor: pointer;
             left: 50%;
             transform: translateX(-50%);
-        }
-
-        .pill-container {
             top: 15px;
             padding: 10px 20px;
         }
@@ -63,13 +74,11 @@
             font-size: 16px;
         }
 
-        /* Link style for the tiny pill */
         .tiny-pill a {
             text-decoration: none;
             color: white;
         }
 
-        /* Style for gallery image container */
         .gallery-img {
             max-width: 150px;
             max-height: 150px;
@@ -83,14 +92,6 @@
             opacity: 1;
         }
 
-        .gallery-img:hover {
-            max-width: 180px;
-            max-height: 180px;
-            transform: scale(2);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Style for the content container with scrollable height */
         .content-container {
             margin-top: 110px;
             height: 80vh;
@@ -256,7 +257,40 @@
                 imageContainer.appendChild(link);
                 img.setAttribute('loading', 'lazy');
             });
-        </script>
+            </script>
+            <script>
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+const applyHoverEffect = (image) => {
+    image.style.maxWidth = '180px';
+    image.style.maxHeight = '180px';
+    image.style.transform = 'scale(2)';
+    image.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+};
+
+const removeHoverEffect = (image) => {
+    image.style.maxWidth = '150px';
+    image.style.maxHeight = '150px';
+    image.style.transform = 'none';
+    image.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.2)';
+};
+
+const toggleEffect = (image) => {
+    if (isMobile) {
+        toggleHoverEffect(image);
+    } else {
+        image.addEventListener('mouseenter', () => applyHoverEffect(image));
+        image.addEventListener('mouseleave', () => removeHoverEffect(image));
+    }
+
+    image.addEventListener('click', () => toggleHoverEffect(image));
+};
+
+const galleryImages = document.querySelectorAll('.gallery-img');
+galleryImages.forEach(img => {
+    toggleEffect(img);
+});
+</script>
     </div>
 </body>
 </html>
