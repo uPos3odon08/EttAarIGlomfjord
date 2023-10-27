@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galleri</title>
@@ -34,49 +35,11 @@
 
         /* Adjustments for mobile screens */
         @media (max-width: 600px) {
-            .pill-container, .tiny-pill {
-                font-size: 20px;
-            }
-
-            .tiny-pill a {
-                font-size: 14px;
-            }
-
             .gallery-img {
                 max-width: 100px;
                 max-height: 100px;
                 margin: 20px;
             }
-
-            .content-container {
-                margin-top: 60px;
-            }
-        }
-
-        /* Styles for larger screens */
-        .pill-container, .tiny-pill {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border-radius: 50px;
-            position: fixed;
-            font-size: 24px;
-            text-align: center;
-            cursor: pointer;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 15px;
-            padding: 10px 20px;
-        }
-
-        .tiny-pill {
-            top: 65px;
-            padding: 5px 10px;
-            font-size: 16px;
-        }
-
-        .tiny-pill a {
-            text-decoration: none;
-            color: white;
         }
 
         .gallery-img {
@@ -91,24 +54,11 @@
             margin: 75px;
             opacity: 1;
         }
-
-        .content-container {
-            margin-top: 110px;
-            height: 80vh;
-            overflow-y: scroll;
-            position: relative;
-        }
-
         @media (max-width: 600px) {
             .gallery-img {
                 max-width: 45%; /* Adjust this value to your preference */
                 max-height: auto;
                 margin: 10px;
-            }
-            .content-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
             }
         }
         @media (max-width: 600px) {
@@ -116,20 +66,6 @@
                 max-width: 45%; /* Adjust this value to your preference */
                 max-height: auto;
                 margin: 10px;
-            }
-            .content-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .pill-container {
-                width: 50%; /* Adjust the width as needed */
-                text-align: center;
-            }
-            .tiny-pill {
-                width: 20%; /* Set the width of the bottom pill to 20% */
-                margin-top: 5px; /* Add margin to separate the two elements */
-                text-align: center;
             }
         }
     </style>
@@ -259,7 +195,38 @@
                 "20230928-IMG_0165-Enhanced-NR",
                 "20230928-IMG_0174-Enhanced-NR",
                 "20230928-IMG_0192-Enhanced-NR",
-
+                "20230930-IMG_0229",
+                "20230930-IMG_0236",
+                "20230930-IMG_0237",
+                "20230930-IMG_0241",
+                "20231001-IMG_0004",
+                "20231001-IMG_0014",
+                "20231001-IMG_0027",
+                "20231001-IMG_0032",
+                "20231001-IMG_0033",
+                "20231001-IMG_0034",
+                "20231001-IMG_0038",
+                "20231001-IMG_0045",
+                "20231001-IMG_0055",
+                "20231001-IMG_0069",
+                "20231017-IMG_0012-Enhanced-NR",
+                "20231017-IMG_0014-Enhanced-NR",
+                "20231019-IMG_0011",
+                "20231019-IMG_0012",
+                "20231019-IMG_0023",
+                "20231019-IMG_0035",
+                "20231019-IMG_0037-Enhanced-NR",
+                "20231019-IMG_0041",
+                "20231019-IMG_0050",
+                "20231019-IMG_0052-Enhanced-NR",
+                "20231019-IMG_0057",
+                "20231019-IMG_0071-Enhanced-NR",
+                "20231019-IMG_0076",
+                "20231020-IMG_0001",
+                "20231020-IMG_0002-Enhanced-NR",
+                "20231020-IMG_0006-Enhanced-NR",
+                "20231020-IMG_0007-Enhanced-NR",
+                "20231021-IMG_0013-Enhanced-NR",
                 // Add more image file names without extension here
             ];
 
@@ -327,7 +294,7 @@
                 const galleryImages = document.querySelectorAll('.gallery-img');
                 galleryImages.forEach(img => {
                     toggleEffect(img);
-                });
+            });
             </script>
     </div>
 </body>

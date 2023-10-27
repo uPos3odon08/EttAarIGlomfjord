@@ -1,0 +1,72 @@
+
+        /* Adjustments for mobile screens */
+        @media (max-width: 600px) {
+            .pill-container, .tiny-pill {
+                font-size: 20px;
+            }
+
+            .tiny-pill a {
+                font-size: 14px;
+            }
+
+            .content-container {
+                margin-top: 60px;
+            }
+        }
+
+        /* Styles for larger screens */
+        .pill-container, .tiny-pill {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50px;
+            position: fixed;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 15px;
+            padding: 10px 20px;
+        }
+
+        .tiny-pill {
+            top: 65px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        .tiny-pill a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .content-container {
+            margin-top: 110px;
+            height: 80vh;
+            overflow-y: scroll;
+            position: relative;
+        }
+
+        @media (max-width: 600px) {
+            .content-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 600px) {
+            .content-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .pill-container {
+                width: 50%; /* Adjust the width as needed */
+                text-align: center;
+            }
+            .tiny-pill {
+                width: 20%; /* Set the width of the bottom pill to 20% */
+                margin-top: 5px; /* Add margin to separate the two elements */
+                text-align: center;
+            }
+        }
