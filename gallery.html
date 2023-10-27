@@ -69,7 +69,7 @@
         }
 
         .tiny-pill {
-            top: 60px;
+            top: 65px;
             padding: 5px 10px;
             font-size: 16px;
         }
@@ -98,6 +98,40 @@
             overflow-y: scroll;
             position: relative;
         }
+
+        @media (max-width: 600px) {
+            .gallery-img {
+                max-width: 45%; /* Adjust this value to your preference */
+                max-height: auto;
+                margin: 10px;
+            }
+            .content-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-img {
+                max-width: 45%; /* Adjust this value to your preference */
+                max-height: auto;
+                margin: 10px;
+            }
+            .content-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .pill-container {
+                width: 50%; /* Adjust the width as needed */
+                text-align: center;
+            }
+            .tiny-pill {
+                width: 20%; /* Set the width of the bottom pill to 20% */
+                margin-top: 5px; /* Add margin to separate the two elements */
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -108,7 +142,7 @@
 
     <!-- Tiny pill shape for "tilbake" -->
     <div class="tiny-pill">
-        <a href="index.html">tilbake</a>
+        <a href="index.html">Tilbake</a>
     </div>
 
     <!-- Content container with fixed height and scrolling -->
@@ -259,38 +293,42 @@
             });
             </script>
             <script>
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-const applyHoverEffect = (image) => {
-    image.style.maxWidth = '180px';
-    image.style.maxHeight = '180px';
-    image.style.transform = 'scale(2)';
-    image.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
-};
+                const applyHoverEffect = (image) => {
+                    image.style.maxWidth = '180px';
+                    image.style.maxHeight = '180px';
+                    image.style.transform = 'scale(2)';
+                    image.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                };
 
-const removeHoverEffect = (image) => {
-    image.style.maxWidth = '150px';
-    image.style.maxHeight = '150px';
-    image.style.transform = 'none';
-    image.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.2)';
-};
+                const removeHoverEffect = (image) => {
+                    image.style.maxWidth = '150px';
+                    image.style.maxHeight = '150px';
+                    image.style.transform = 'none';
+                    image.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.2)';
+                };
 
-const toggleEffect = (image) => {
-    if (isMobile) {
-        toggleHoverEffect(image);
-    } else {
-        image.addEventListener('mouseenter', () => applyHoverEffect(image));
-        image.addEventListener('mouseleave', () => removeHoverEffect(image));
-    }
+                const toggleEffect = (image) => {
+                    if (isMobile) {
+                        image.addEventListener('click', () => {
+                            if (image.style.maxWidth === '150px') {
+                                applyHoverEffect(image);
+                            } else {
+                                removeHoverEffect(image);
+                            }
+                        });
+                    } else {
+                        image.addEventListener('mouseenter', () => applyHoverEffect(image));
+                        image.addEventListener('mouseleave', () => removeHoverEffect(image));
+                    }
+                };
 
-    image.addEventListener('click', () => toggleHoverEffect(image));
-};
-
-const galleryImages = document.querySelectorAll('.gallery-img');
-galleryImages.forEach(img => {
-    toggleEffect(img);
-});
-</script>
+                const galleryImages = document.querySelectorAll('.gallery-img');
+                galleryImages.forEach(img => {
+                    toggleEffect(img);
+                });
+            </script>
     </div>
 </body>
 </html>
