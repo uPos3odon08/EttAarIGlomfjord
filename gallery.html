@@ -11,7 +11,7 @@
             padding: 0;
             overflow: hidden;
             position: relative;
-            background: url('/images/20230827-IMG_0018.jpg') no-repeat fixed;
+            background: url('/images/optimized/20230827-IMG_0018.jpg') no-repeat fixed;
             background-size: cover;
         }
 
@@ -120,7 +120,8 @@
 
             // Array of image file names without extension
             const imageFileNamesWithoutExtension = [
-                "20230815-19_08.30",
+
+            "20230815-19_08.30",
                 "20230815-19_22.33",
                 "20230815-19_27.35",
                 "20230815-19_32.54",
@@ -231,7 +232,7 @@
             imageFileNamesWithoutExtension.forEach(fileName => {
                 const img = document.createElement('img');
                 img.className = 'gallery-img';
-                img.src = `/images/${fileName}.jpg`; // Add the jpg extension here
+                img.src = `images/optimized/${fileName}.jpg`; // Load from the /optimized folder
 
                 // Determine alt text based on the file name pattern
                 let alt = '';
@@ -249,7 +250,7 @@
 
                 // Open the image in a new tab when clicked
                 const link = document.createElement('a');
-                link.href = `/images/${fileName}.jpg`; // Add the jpg extension here
+                link.href = `/images/${fileName}.jpg`; // Load from the /images folder
                 link.target = '_blank';
                 link.appendChild(img);
                 imageContainer.appendChild(link);
