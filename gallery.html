@@ -280,7 +280,7 @@
 
                 // Open the image in a new tab when clicked
                 const link = document.createElement('a');
-                img.src = `images/optimized/${fileName}.jpg`; // Load from the /images/optimized folder
+                img.src = `images/${fileName}.jpg`; // Load from the /images/optimized folder
                 link.target = '_blank';
                 link.appendChild(img);
                 imageContainer.appendChild(link);
