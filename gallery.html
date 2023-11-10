@@ -61,13 +61,6 @@
                 margin: 10px;
             }
         }
-        @media (max-width: 600px) {
-            .gallery-img {
-                max-width: 45%; /* Adjust this value to your preference */
-                max-height: auto;
-                margin: 10px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -75,6 +68,12 @@
     <div class="pill-container">
         Ett år i Glomfjord
     </div>
+
+    <!-- Buttons for each season -->
+    <button onclick="scrollToSeason('summer')">Sommer</button>
+    <button onclick="scrollToSeason('fall')">Høst</button>
+    <button onclick="scrollToSeason('winter')">Vinter</button>
+    <button onclick="scrollToSeason('spring')">Vår</button>
 
     <!-- Tiny pill shape for "tilbake" -->
     <div class="tiny-pill">
@@ -91,7 +90,6 @@
 
             // Array of image file names without extension
             const imageFileNamesWithoutExtension = [
-
                 "20230815-19_08.30",
                 "20230815-19_22.33",
                 "20230815-19_27.35",
@@ -261,7 +259,6 @@
                 "20231109-IMG_0062-Enhanced-NR",
                 "20231109-IMG_0066-Enhanced-NR",
                 "20231109-IMG_0076-Enhanced-NR",
-                // Add more image file names without extension here
             ];
 
             // Iterate through the image file names and create image elements
@@ -279,7 +276,7 @@
                 } else if (fileName.startsWith("202312") || fileName.startsWith("202401") || fileName.startsWith("202402")) {
                     alt = 'winter';
                 } else if (fileName.startsWith("202403") || fileName.startsWith("202404")) {
-                    alt = 'autumn';
+                    alt = 'spring';
                 }
 
                 img.alt = alt;
@@ -292,44 +289,65 @@
                 imageContainer.appendChild(link);
                 img.setAttribute('loading', 'lazy');
             });
-            </script>
-            <script>
-                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-                const applyHoverEffect = (image) => {
-                    image.style.maxWidth = '180px';
-                    image.style.maxHeight = '180px';
-                    image.style.transform = 'scale(2)';
-                    image.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
-                };
+            function scrollToSeason(season) {
+                const images = document.querySelectorAll('.gallery-img');
+                let closestImage;
+                let minDistance = Number.MAX_VALUE;
 
-                const removeHoverEffect = (image) => {
-                    image.style.maxWidth = '150px';
-                    image.style.maxHeight = '150px';
-                    image.style.transform = 'none';
-                    image.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.2)';
-                };
-
-                const toggleEffect = (image) => {
-                    if (isMobile) {
-                        image.addEventListener('click', () => {
-                            if (image.style.maxWidth === '150px') {
-                                applyHoverEffect(image);
-                            } else {
-                                removeHoverEffect(image);
-                            }
-                        });
-                    } else {
-                        image.addEventListener('mouseenter', () => applyHoverEffect(image));
-                        image.addEventListener('mouseleave', () => removeHoverEffect(image));
+                images.forEach((img, index) => {
+                    const imgSeason = img.alt.toLowerCase();
+                    if (imgSeason === season) {
+                        const distance = Math.abs(img.offsetTop - imageContainer.offsetTop);
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestImage = img;
+                        }
                     }
-                };
+                });
 
-                const galleryImages = document.querySelectorAll('.gallery-img');
-                galleryImages.forEach(img => {
-                    toggleEffect(img);
-            });
-            </script>
+                if (closestImage) {
+                    closestImage.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        </script>
+        <script>
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            const applyHoverEffect = (image) => {
+                image.style.maxWidth = '180px';
+                image.style.maxHeight = '180px';
+                image.style.transform = 'scale(2)';
+                image.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+            };
+
+            const removeHoverEffect = (image) => {
+                image.style.maxWidth = '150px';
+                image.style.maxHeight = '150px';
+                image.style.transform = 'none';
+                image.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.2)';
+            };
+
+            const toggleEffect = (image) => {
+                if (isMobile) {
+                    image.addEventListener('click', () => {
+                        if (image.style.maxWidth === '150px') {
+                            applyHoverEffect(image);
+                        } else {
+                            removeHoverEffect(image);
+                        }
+                    });
+                } else {
+                    image.addEventListener('mouseenter', () => applyHoverEffect(image));
+                    image.addEventListener('mouseleave', () => removeHoverEffect(image));
+                }
+            };
+
+            const galleryImages = document.querySelectorAll('.gallery-img');
+            galleryImages.forEach(img => {
+                toggleEffect(img);
+        });
+        </script>
     </div>
 </body>
 </html>
